@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="container-fluid mt-5 ms-0">
+    <img src="{{cat.image.url}}" height="500px" width="100%" >
+</div>
+
+
+<div class="container">
+ <div class="row justify-content-center">
+        <h1 class="section-title text-center mt-4" data-aos="fade-up">{{cat.name}}</h1>
+        <div class="col-md-6 text-center" data-aos="fade-up" data-aos-delay="300">
+          <p>{{cat.desc}}</p>
+
+        </div>
+ </div>
+
+
+
+ <section class="categories overflow-hidden">
+    <div class="container">
+      <div class="open-up" data-aos="zoom-out">
+        <div class="row">
+          {% for i in pro %}
+          <div class="col-md-4">
+            <div class="cat-item image-zoom-effect">
+              <div class="image-holder">
+                <a href="index.html">
+                  <img src="{{i.image.url}}" height="300px" width="100%" alt="categories" >
+                </a>
+              </div>
+                <div class="category-content">
+                <div class="product-button">
+                  <a href="" class="btn btn-common text-uppercase">{{i.name}}</a>
+                    <h5>{{i.price}}</h5>
+                     <a href="{% url 'shop:detail' i.id %}">Details</a>
+
+                </div>
+              </div>
+
+            </div>
+          </div>
+          {% endfor %}
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+
+{% endblock %}
+
+
+
